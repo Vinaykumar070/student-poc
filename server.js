@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-Test API
+// Test API
 app.get("/", (req, res) => {
     res.send("Student POC API Running");
 });
