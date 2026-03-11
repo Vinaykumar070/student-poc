@@ -6,6 +6,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const Student = require("./models/Student");
+const Address = require("./models/Address");
 
 const app = express();
 
@@ -73,6 +74,31 @@ app.delete("/api/students/:id", async (req, res) => {
   try {
     await Student.findByIdAndDelete(req.params.id);
     res.json({ message: "Student deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.post("/api/addresses", async (req, res) => {
+  try {
+    const address = new Address(req.body);
+    const savedAddress = await address.save();
+    res.json(savedAddress);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get("/api/student-details/:studentId", async (req, res) => {
+  try {
+    const student = await Student.findOne({ studentId: req.params.studentId });
+    const addresses = await Address.find({ studentId: req.params.studentId });
+
+    res.json({
+      student,
+      addresses
+    });
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
