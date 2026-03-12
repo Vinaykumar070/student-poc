@@ -4,6 +4,7 @@ require("dotenv").config();
 
 const studentRoutes = require("./routes/studentRoutes");
 const addressRoutes = require("./routes/addressRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 
 const app = express();
@@ -14,6 +15,8 @@ connectDB();
 
 app.use("/api/students", studentRoutes);
 app.use("/api/addresses", addressRoutes);
+app.use("/api/auth", authRoutes);
+
 
 
 const PORT = process.env.PORT || 3000;
