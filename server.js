@@ -12,7 +12,8 @@ const errorHandler = require("./middleware/errorHandler");
 
 
 const app = express();
-
+const cors = require("cors");
+app.use(cors());
 app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 connectDB();
