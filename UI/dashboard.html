@@ -219,11 +219,11 @@ function openAddModal() {
   new bootstrap.Modal(document.getElementById("studentModal")).show();
 }
 
-function openEditModal(id, name, email) {
+function openEditModal(id, name,course,age, email) {
   $("#studentId").val(id);
   $("#studentName").val(name);
-  $("#studentCourse").val("");
-  $("#studentAge").val("");
+  $("#studentCourse").val(course);
+  $("#studentAge").val(age);
   $("#studentEmail").val(email);
   $("#modalTitle").text("Edit Student");
 
