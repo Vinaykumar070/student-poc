@@ -1,7 +1,7 @@
 const Joi = require("joi");
 
 exports.createStudentSchema = Joi.object({
-  studentId: Joi.string().required(),
+  //studentId: Joi.string().required(),
   name: Joi.string().min(3).required(),
   course: Joi.string().required(),
   age: Joi.number().min(18).required(),

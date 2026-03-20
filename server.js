@@ -1,5 +1,6 @@
 const express = require("express");
 const connectDB = require("./config/db");
+const path = require("path");
 require("dotenv").config();
 
 const studentRoutes = require("./routes/studentRoutes");
@@ -23,6 +24,18 @@ app.use("/api/addresses", addressRoutes);
 app.use("/api/auth", authRoutes);
 
 app.use(errorHandler);
+
+
+app.use(express.static(
+  path.join(__dirname, "..", "student-poc-frontend")
+));
+
+// Optional route (you can skip this)
+app.get("/dashboard", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "..", "student-poc-frontend", "dashboard.html")
+  );
+});
 
 
 const PORT = process.env.PORT || 3000;

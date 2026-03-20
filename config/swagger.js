@@ -10,7 +10,7 @@ const options = {
     },
     servers: [
       {
-        url: "https://student-poc.onrender.com"
+        url: "http://localhost:3000",
       }
     ],
     components: {

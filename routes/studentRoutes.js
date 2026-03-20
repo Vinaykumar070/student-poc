@@ -9,6 +9,18 @@ const {
   updateStudentSchema,
   idSchema,
 } = require("../validators/studentValidator");
+/**
+ * @swagger
+ * /api/students:
+ *   get:
+ *     summary: Get students (all OR filtered)
+ *     security:
+ *       - bearerAuth: []
+ *     description: |
+ *       - No query params → returns all students
+ *       - With query params → returns paginated/filtered data
+ */
+router.get("/", auth, studentController.getStudents);
 
 /**
  * @swagger
