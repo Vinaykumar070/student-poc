@@ -87,19 +87,19 @@ exports.getStudents = async (
   };
 };
 
-exports.updateStudent = async (id, data) => {
-    if (!id) {
+exports.updateStudent = async (studentId, data) => {
+    if (!studentId) {
         throw new Error("Student ID is required");
     }
     if (!data) {
         throw new Error("Student data is required");
     }
-    return await studentRepository.updateStudent(id, data);
+    return await studentRepository.updateStudentByStudentId(studentId, data);
 };
 
-exports.deleteStudent = async (id) => {
-    if (!id) {
+exports.deleteStudent = async (studentId) => {
+    if (!studentId) {
         throw new Error("Student ID is required");
     }
-    return await studentRepository.deleteStudent(id);
-}
+    return await studentRepository.deleteStudentByStudentId(studentId);
+};

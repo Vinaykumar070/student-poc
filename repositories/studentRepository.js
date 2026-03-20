@@ -38,10 +38,15 @@ exports.getStudents = async (page, limit, filters, sortBy, order) => {
     };
 };
 
-exports.updateStudent = async (id, data) => {
-    return await Student.findByIdAndUpdate(id, data, { new: true });
+// Example (MongoDB / Mongoose style)
+exports.updateStudentByStudentId = async (studentId, data) => {
+    return await Student.findOneAndUpdate(
+        { studentId: studentId },
+        data,
+        { new: true }
+    );
 };
 
-exports.deleteStudent = async (id) => {
-    return await Student.findByIdAndDelete(id);
+exports.deleteStudentByStudentId = async (studentId) => {
+    return await Student.findOneAndDelete({ studentId: studentId });
 };

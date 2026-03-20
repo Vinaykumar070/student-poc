@@ -86,9 +86,6 @@ router.get("/", auth, studentController.getStudents);
  *           schema:
  *             type: object
  *             properties:
- *               studentId:
- *                 type: string
- *                 example: S101
  *               name:
  *                 type: string
  *                 example: Amar

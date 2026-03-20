@@ -26,16 +26,17 @@ app.use("/api/auth", authRoutes);
 app.use(errorHandler);
 
 
-app.use(express.static(
-  path.join(__dirname, "..", "student-poc-frontend")
-));
+// app.use(express.static(
+//   path.join(__dirname, "..", "student-poc-frontend")
+// ));
+app.use(express.static(path.join(__dirname, "UI")));
 
 // Optional route (you can skip this)
-app.get("/dashboard", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "..", "student-poc-frontend", "dashboard.html")
-  );
-});
+// app.get("/dashboard", (req, res) => {
+//   res.sendFile(
+//     path.join(__dirname, "..", "student-poc-frontend", "dashboard.html")
+//   );
+// });
 
 
 const PORT = process.env.PORT || 3000;
